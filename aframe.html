@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title>ESB Creative Tech Fest 2020</title>
+      <link rel="icon" type="image/jpg" href="ctflogo.jpg">
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+        <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
+        <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+        <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+        <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script>
+  </head>
+  <body>
+    <a-scene  antialias="true" 
+              physics= "debug: false;
+                        gravity: -9.8;
+                        restitution: 0.7">
+
+      <!-- All of the media assets that will be used in the project are linked in here. Called with a #id later in the page -->
+      <a-assets>
+        <video id="ctf" autoplay loop="false" src="ESBtechFest.mp4"></video>
+        <video id="mc_samhra" autoplay loop="false" src="McSamhra.mp4"></video>
+        <video id="jenna" autoplay loop="false" src="JennaCook.mp4"></video>
+        <video id="oisin" autoplay loop="false" src="OisinFlynn.mp4"></video>
+        <!--<img id="esbctf01" src="3220-277.jpg"></img>
+        <img id="esbctf02" src="3220-168.jpg"></img>
+        <img id="esbctf03" src="3220-198.jpg"></img>
+        <img id="esbctf04" src="3220-102.jpg"></img> -->
+        <img id="esbctf05" src="ctflogo.jpg"></img>
+      </a-assets>     
+
+      <!-- The Floor -->
+      <!--<a-sphere material="color: #EF2D5E; roughness: 0.3" position="0 1.25 0" radius="1.25" dynamic-body></a-sphere>
+      <a-cylinder position="-1 145.75 0" radius="0.5" height="1.5" color="#FFC65D" grabbable dynamic-body="linearDamping: 0.5; angularDamping: 0.3"></a-cylinder> -->
+      <a-plane  src="floor.jpg" 
+                repeat="40 40" 
+                position="0 0 0" 
+                rotation="-90 0 0" 
+                width="100" height="100" 
+                color="#FFFFFF" 
+                static-body>
+      </a-plane>
+
+
+      <!-- The User -->
+      <a-camera position="0 1 3">
+        <a-cursor id="cursor" color="cyan"></a-cursor>
+      </a-camera>
+    
+
+      <!-- The Sky -->
+      <a-sky src="sky.jpg" repeat="1 2"></a-sky>
+
+      <!-- The First Video Wall -->   
+      <a-box color="#0A6FB6" position="0 2.25 0" width="8" height="4.5" depth="0.2" color="#22376e" static-body>
+        <a-text font="kelsonsans" value="Welcome to ESB Creative Tech Fest 2020" color="#FFFFFF" height="1.5" width="5" position="-3 1.5 0.11" rotation="0 0 0"></a-text>
+        <a-text font="kelsonsans" value="A short video from CTF 2019 that shows a glimpse of the day. There was loads to see and do... Have a look here." color="#000000" height="4" width="2.5" position="-3.5 -1.5 0.11" rotation="0 0 0"></a-text>
+        <a-video src="#ctf" width="4" height="2.25" position="0 0 0.11" controls></a-video> 
+        <a-image src="#esbctf05" width="1" height="0.675" position="3 1.5 0.11" ></a-image>
+        <a-entity id="ctf-ctrl" video-controls="src:#ctf" distance="0.3"></a-entity>
+      </a-box>
+      
+
+      <!-- Jenna Wall 1 -->
+      <a-box  color="#FFDA4F" position="4 2.25 4" width="8" height="4.5"  depth="0.2" rotation="0 -90 0" static-body>
+        <a-video src="#jenna" width="4" height="2.25" position="0 0 0.11" controls></a-video>
+        <a-image src="#esbctf05" width="1" height="0.675" position="3 1.5 0.11" ></a-image>
+        <a-text font="kelsonsans" value="Welcome to ESB Creative Tech Fest 2020" color="#FFFFFF" height="1.5" width="5" position="-3 1.5 0.11" rotation="0 0 0"></a-text>
+        <a-text font="kelsonsans" value="It is a Lego animation for my favourite Taylor Swift video. Jenna is 9 and learned how to do stop motion while off school. There are over 1000 pictures used in the video." color="#000000" height="4" width="2.5" position="-3.5 -1.5 0.11" rotation="0 0 0"></a-text>
+        <a-entity id="jenna-ctrl" video-controls="src:#jenna" distance="0.25" rotation="0 -90 0"></a-entity>       
+      </a-box>
+      
+
+      <!-- Oisin Wall 2 -->
+      <a-box color="#FF4F6B"position="-4 2.25 4" width="8" height="4.5" depth="0.2" rotation="0 90 0" static-body>
+        <a-video src="#oisin" width="4" height="2.25" position="0 0 0.11" controls></a-video>
+        <a-image src="#esbctf05" width="1" height="0.675" position="3 1.5 0.11" ></a-image>
+        <a-text font="kelsonsans" value="Welcome to ESB Creative Tech Fest 2020" color="#FFFFFF" height="1.5" width="5" position="-3 1.5 0.11" rotation="0 0 0"></a-text>
+        <a-text font="kelsonsans" value="The project ‘AUTISTICALLY AWESOME’ began 2 years ago. It has evolved to become an exceptional conversation around how Autism presents in Oisin and his day to day experiences in life. It is a powerful and emotive 5 minute animation created using Scratch." color="#000000" height="4" width="2" position="-3 -1.5 0.11" rotation="0 0 0"></a-text>
+        <a-entity id="oisin-ctrl" video-controls="src:#oisin" distance="0.25" rotation="0 90 0"></a-entity>
+      </a-box>
+       
+
+      <!-- Samra Video Wall -->
+      <a-box src="Concrete01.jpg" repeat="2 2" color="#FFFFFF" position="0 2.25 8" width="8" height="4.5" depth="0.2" rotation="0 180 0" static-body>
+        <a-video src="#mc_samhra" width="4" height="2.25" position="0 0 0.11"></a-video> 
+        <a-image src="#esbctf05" width="1" height="0.675" position="3 1.5 0.11" ></a-image>      
+        <a-text font="kelsonsans" value="Welcome to ESB Creative Tech Fest 2020" color="#FFFFFF" height="1.5" width="5" position="-3 1.5 0.11" rotation="0 0 0"></a-text>
+        <a-text font="kelsonsans" value="The video is a group response to young people's experience of anxiety. The group spent time exploring the topic of mental health and created a visualisation one young person's experience." color="#000000" height="4" width="2" position="-3.5 -1.5 0.11" rotation="0 0 0"></a-text>
+        <a-entity id="sam-ctrl" video-controls="src:#mc_samhra" distance="0.25" rotation="0 180 0"></a-entity>
+      </a-box>
+      
+    </a-scene>
+  </body>
+</html>
